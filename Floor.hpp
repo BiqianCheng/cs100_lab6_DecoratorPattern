@@ -1,26 +1,16 @@
 #ifndef __FLOOR_HPP__
 #define __FLOOR_HPP__
 
-#include "base.hpp"
+#include "decorator.hpp"
+#include <cmath>
 
-class Floor: public Base
+class Floor: public Decorator
 {
-	protected:
-		Base* child;
-		int f;
 	public:
-		Floor(): child(NULL) {}
-		Floor(Base* number): child(number) {} 
+		Floor(Base* deco): Decorator(deco) {} 
 		virtual double evaluate()
 		{
-			f=floor(child->evaluate());
-			return f;
-		}
-		virtual std::string stringify()
-		{
-		
-			return f->stringify();
-
+			return floor(deco->evaluate());
 		}
 };
 

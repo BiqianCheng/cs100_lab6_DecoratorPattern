@@ -1,18 +1,19 @@
 #ifndef __TRUNC_HPP__
 #define __TRUNC_HPP__
 
-#include "base.hpp"
+#include "decorator.hpp"
+#include <cmath>
 
-class Trunc : public Base
+class Trunc : public Decorator
 {
-
 public:
-    Trunc(Base *Tx) : Base(Tx){};
+    Trunc(Base *deco) : Decorator(deco){};
 
-    virtual string stringify()
+    virtual std::string stringify()
     {
-        return to_string(x->evaluate());
+        return std::to_string(deco->evaluate());
     }
+};
 
 
 #endif

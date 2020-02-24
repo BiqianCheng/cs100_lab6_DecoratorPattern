@@ -1,25 +1,17 @@
 #ifndef __CEIL_HPP__
 #define __CEIL_HPP__
 
-#include "base.hpp"
-class Ceiling: public Base
+#include "decorator.hpp"
+#include <cmath>
+
+class Ceiling: public Decorator
 {
-	protected:
-		Base* child;
-		int c;
 	public:
-		Ceiling(): child(NULL) {}
-		Ceiling(Base* number): child(number) {}
+		Ceiling(Base* deco): Decorator(deco) {}
 		virtual double evaluate()
 		{
-			c=ceil(child->evaluate());		
-			return c;
+			return ceil(deco->evaluate());
 		}
-		virtual std::string stringify()
-		{		
-			return c->stringify();
-		}
-		
 };
 
 #endif

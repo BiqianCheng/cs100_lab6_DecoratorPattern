@@ -1,18 +1,19 @@
 #ifndef __PAREN_HPP__
 #define __PAREN_HPP__
 
-#include "base.hpp"
+#include "decorator.hpp"
+#include <cmath>
 
-class Paren:public Base
+class Paren : public Decorator
 {
 public:
-	Paren(Base *Tx):Base(Tx){};
+	Paren(Base *deco):Decorator(deco){};
 
-	virtual string stringify()
+	virtual std::string stringify()
 	{
-		return "("+x->stringify()+")";
-	};
+		return "(" + deco -> stringify()+")";
+	}
 
+};
 
-}
 #endif

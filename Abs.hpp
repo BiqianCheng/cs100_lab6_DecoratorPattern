@@ -1,26 +1,17 @@
 #ifndef __ABS_HPP__
 #define __ABS_HPP__
 
-#include "base.hpp"
+#include "decorator.hpp"
+#include <cmath>
 
-class Absolute: public Base
+class Absolute : public Decorator
 {
-	protected:
-		Base* child;
-		int a;
-	public:
-		Absolute(): child(NULL) {}
-		Absolute(Base* number): child(number) {}
-		double evaluate()
-		{
-			a=fabs(child->evaluate());		
-			return fabs(child->evaluate());
-		}
-		 virtual std::string stringify()
-                {
-                        return a->stringify();
-                }
-
+public:
+	Absolute(Base *deco) : Decorator(deco){};
+	virtual double evaluate()
+	{
+		return fabs(deco->evaluate());
+	}
 };
 
 #endif

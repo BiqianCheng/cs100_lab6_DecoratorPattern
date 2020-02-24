@@ -2,7 +2,6 @@
 #define __BASE_HPP__
 
 #include <string>
-#include <math.h>
 
 class Base {
     public:
